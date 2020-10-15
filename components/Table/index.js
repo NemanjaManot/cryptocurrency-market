@@ -69,9 +69,9 @@ export default function EnhancedTable() {
             <TableCell component="th" id={labelId} scope="row" padding="none">
               {row.symbol}
             </TableCell>
-            <TableCell align="right">{row.volume || 0}</TableCell>
-            <TableCell align="right">{row.avg || 0}</TableCell>
-            <TableCell align="right">{row.latest_trade || 0}</TableCell>
+            <TableCell align="left">{row.volume || 0}</TableCell>
+            <TableCell align="left">{row.avg || 0}</TableCell>
+            <TableCell align="left">{row.latest_trade || 0}</TableCell>
           </TableRow>
         );
       });

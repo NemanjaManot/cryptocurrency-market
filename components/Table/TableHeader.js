@@ -6,10 +6,10 @@ import TableSortLabel from '@material-ui/core/TableSortLabel';
 import styles from '../../styles/Home.module.css';
 
 const headCells = [
-  { id: 'symbol', numeric: false, disablePadding: true, label: 'Currency Symbol' },
-  { id: 'volume', numeric: true, disablePadding: false, label: 'Volume' },
-  { id: 'avg', numeric: true, disablePadding: false, label: 'Average' },
-  { id: 'latest_trade', numeric: true, disablePadding: false, label: 'Latest trade' },
+  { id: 'symbol', disablePadding: true, label: 'Currency Symbol' },
+  { id: 'volume', disablePadding: false, label: 'Volume' },
+  { id: 'avg', disablePadding: false, label: 'Average' },
+  { id: 'latest_trade', disablePadding: false, label: 'Latest trade' },
 ];
 
 export default function TableHeader(props) {
@@ -24,7 +24,7 @@ export default function TableHeader(props) {
         {headCells.map((headCell) => (
           <TableCell
             key={headCell.id}
-            align={headCell.numeric ? 'right' : 'left'}
+            align="left"
             padding={headCell.disablePadding ? 'none' : 'default'}
             sortDirection={orderBy === headCell.id ? order : false}
           >

@@ -13,7 +13,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <div className={styles.homeTableHeader}>
+      <div className={styles.tableHeader}>
         <Link href={`/alerts/`}>
           <Button variant="outlined" color="primary" href="#outlined-buttons">
             Alerts

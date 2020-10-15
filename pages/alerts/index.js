@@ -11,6 +11,7 @@ import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import FormModal from './FormModal';
 import { mockedAlerts, data } from '../../dataMock';
+import styles from '../../styles/Home.module.css';
 
 const filteredData = data.filter((item) => item.avg);
 
@@ -53,20 +54,20 @@ export default function Alerts() {
   const handleCurrMaxAvg = (e) => setCurrMaxAvg(e.target.value);
 
   return (
-    <div>
+    <div className={styles.alerts}>
       <Head>
         <title>Crypto Currency Market / Alerts</title>
       </Head>
 
-      <div style={{ margin: '15px 0' }}>
+      <div className={styles.tableHeader}>
         <Link href="/">
           <a>← Back to home</a>
         </Link>
-      </div>
 
-      <Button variant="contained" color="primary" onClick={handleOpen}>
-        Add alert
-      </Button>
+        <Button variant="contained" color="primary" onClick={handleOpen}>
+          Add alert
+        </Button>
+      </div>
 
       <FormModal
         open={open}
@@ -86,19 +87,19 @@ export default function Alerts() {
         <Table aria-label="simple table">
           <TableHead>
             <TableRow>
-              <TableCell>Symbol</TableCell>
-              <TableCell align="right">Avg</TableCell>
-              <TableCell align="right">Min avg</TableCell>
-              <TableCell align="right">Max avg</TableCell>
+              <TableCell align="left">Symbol</TableCell>
+              <TableCell align="left">Avg</TableCell>
+              <TableCell align="left">Min avg</TableCell>
+              <TableCell align="left">Max avg</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
             {savedAlerts.map((row) => (
               <TableRow key={Math.random()}>
-                <TableCell align="right">{row.symbol}</TableCell>
-                <TableCell align="right">{row.avg}</TableCell>
-                <TableCell align="right">{row.minAvg}</TableCell>
-                <TableCell align="right">{row.maxAvg}</TableCell>
+                <TableCell align="left">{row.symbol}</TableCell>
+                <TableCell align="left">{row.avg}</TableCell>
+                <TableCell align="left">{row.minAvg}</TableCell>
+                <TableCell align="left">{row.maxAvg}</TableCell>
               </TableRow>
             ))}
           </TableBody>

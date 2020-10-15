@@ -13,7 +13,7 @@
   margin-bottom: 100px;
 }
 
-.homeTableHeader {
+.tableHeader {
   display: flex;
   justify-content: space-between;
   margin: 20px 0;
@@ -24,6 +24,11 @@
 }
 
 /* Alerts */
+.alerts {
+  width: 80%;
+  margin-bottom: 100px;
+}
+
 .modal {
   display: flex;
   justify-content: center;
