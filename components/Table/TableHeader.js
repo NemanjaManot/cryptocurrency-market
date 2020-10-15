@@ -8,6 +8,7 @@ import styles from '../../styles/Home.module.css';
 const headCells = [
   { id: 'symbol', numeric: false, disablePadding: true, label: 'Currency Symbol' },
   { id: 'volume', numeric: true, disablePadding: false, label: 'Volume' },
+  { id: 'avg', numeric: true, disablePadding: false, label: 'Average' },
   { id: 'latest_trade', numeric: true, disablePadding: false, label: 'Latest trade' },
 ];
 
