@@ -43,7 +43,7 @@ function stableSort(array, comparator) {
 
 let debounce;
 
-export default function EnhancedTable() {
+export default function HomePage() {
   const [order, setOrder] = useState('desc');
   const [orderBy, setOrderBy] = useState('volume');
   const [page, setPage] = useState(0);

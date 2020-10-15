@@ -1,6 +1,6 @@
 import React from 'react';
 import Head from 'next/head';
-import HomeTable from '../components/HomeTable';
+import HomePage from '../components/HomePage';
 // Styles
 import styles from '../styles/Home.module.css';
 
@@ -12,7 +12,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <HomeTable />
+      <HomePage />
     </div>
   );
 }
