@@ -10,6 +10,7 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import FormModal from '../../components/FormModal';
+import PageHeader from '../../components/PageHeader';
 // Mocks
 import { mockedAlerts, data } from '../../dataMock';
 // Styles
@@ -62,7 +63,7 @@ export default function Alerts() {
         <title>Crypto Currency Market / Alerts</title>
       </Head>
 
-      <div className={styles.tableHeader}>
+      <PageHeader>
         <Link href="/">
           <a className={styles.bold}>← Back to home</a>
         </Link>
@@ -70,7 +71,7 @@ export default function Alerts() {
         <Button variant="contained" color="primary" onClick={handleOpen}>
           Add alert
         </Button>
-      </div>
+      </PageHeader>
 
       <FormModal
         open={open}

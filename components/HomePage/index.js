@@ -10,6 +10,7 @@ import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import HomeTableHeader from './HomeTableHeader';
+import PageHeader from '../PageHeader';
 // temporary mocked data
 import { data } from '../../dataMock';
 // Styles
@@ -108,14 +109,14 @@ export default function HomePage() {
 
   return (
     <div>
-      <div className={styles.tableHeader}>
+      <PageHeader>
         <Link href={`/alerts/`}>
           <Button variant="contained" color="primary">
             Alerts
           </Button>
         </Link>
         <TextField id="outlined-search" label="Search field" type="search" variant="outlined" onChange={handleSearch} />
-      </div>
+      </PageHeader>
 
       <Paper>
         <TableContainer>
