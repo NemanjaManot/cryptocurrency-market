@@ -66,7 +66,7 @@ export default function EnhancedTable() {
 
         return (
           <TableRow tabIndex={-1} key={row.symbol}>
-            <TableCell component="th" id={labelId} scope="row" padding="none">
+            <TableCell component="th" id={labelId} scope="row">
               {row.symbol}
             </TableCell>
             <TableCell align="left">{row.volume || 0}</TableCell>

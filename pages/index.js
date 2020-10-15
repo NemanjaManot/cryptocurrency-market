@@ -1,3 +1,4 @@
+import React from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
 import styles from '../styles/Home.module.css';
@@ -15,7 +16,7 @@ export default function Home() {
 
       <div className={styles.tableHeader}>
         <Link href={`/alerts/`}>
-          <Button variant="outlined" color="primary" href="#outlined-buttons">
+          <Button variant="contained" color="primary">
             Alerts
           </Button>
         </Link>
