@@ -9,8 +9,10 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
-import FormModal from './FormModal';
+import FormModal from '../../components/FormModal';
+// Mocks
 import { mockedAlerts, data } from '../../dataMock';
+// Styles
 import styles from '../../styles/Home.module.css';
 
 const filteredData = data.filter((item) => item.avg);

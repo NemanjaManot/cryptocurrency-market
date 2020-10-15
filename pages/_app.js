@@ -1,7 +1,9 @@
 import React, { useEffect } from 'react';
-import '../styles/globals.css';
-import styles from '../styles/Home.module.css';
 import CopyrightIcon from '@material-ui/icons/Copyright';
+// Global styles
+import '../styles/globals.css';
+// Styles
+import styles from '../styles/Home.module.css';
 
 function MyApp({ Component, pageProps }) {
   useEffect(() => {

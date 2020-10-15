@@ -1,10 +1,11 @@
 import React from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
-import styles from '../styles/Home.module.css';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
-import Table from '../components/Table';
+import HomeTable from '../components/HomeTable';
+// Styles
+import styles from '../styles/Home.module.css';
 
 export default function Home() {
   return (
@@ -23,7 +24,7 @@ export default function Home() {
         <TextField id="outlined-search" label="Search field" type="search" variant="outlined" />
       </div>
 
-      <Table />
+      <HomeTable />
     </div>
   );
 }

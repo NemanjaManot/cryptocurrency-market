@@ -6,7 +6,7 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TablePagination from '@material-ui/core/TablePagination';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
-import TableHeader from './TableHeader';
+import HomeTableHeader from './HomeTableHeader';
 
 // temporary mocked data
 import { data } from '../../dataMock';
@@ -81,7 +81,7 @@ export default function EnhancedTable() {
     <Paper>
       <TableContainer>
         <Table aria-labelledby="tableTitle" aria-label="enhanced table">
-          <TableHeader order={order} orderBy={orderBy} onRequestSort={handleRequestSort} />
+          <HomeTableHeader order={order} orderBy={orderBy} onRequestSort={handleRequestSort} />
           <TableBody>{renderTableBody()}</TableBody>
         </Table>
       </TableContainer>

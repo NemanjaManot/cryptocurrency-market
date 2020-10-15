@@ -3,6 +3,7 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import TableCell from '@material-ui/core/TableCell';
 import TableSortLabel from '@material-ui/core/TableSortLabel';
+// Styles
 import styles from '../../styles/Home.module.css';
 
 const headCells = [
@@ -12,7 +13,7 @@ const headCells = [
   { id: 'latest_trade', disablePadding: false, label: 'Latest trade' },
 ];
 
-export default function TableHeader(props) {
+export default function HomeTableHeader(props) {
   const { order, orderBy, onRequestSort } = props;
   const createSortHandler = (property) => (event) => {
     onRequestSort(event, property);
