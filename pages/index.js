@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import CopyrightIcon from '@material-ui/icons/Copyright';
 import styles from '../styles/Home.module.css'
 
 export default function Home() {
@@ -56,6 +57,7 @@ export default function Home() {
           target="_blank"
           rel="noopener noreferrer"
         >
+          <CopyrightIcon/>
           Nemanja Manot @2020
         </a>
       </footer>
