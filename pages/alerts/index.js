@@ -16,6 +16,7 @@ import { mockedAlerts, data } from '../../dataMock';
 import styles from '../../styles/Home.module.css';
 
 const filteredData = data.filter((item) => item.avg);
+const boldLabel = { fontWeight: 'bold' };
 
 export default function Alerts() {
   const [open, setOpen] = useState(false);
@@ -63,7 +64,7 @@ export default function Alerts() {
 
       <div className={styles.tableHeader}>
         <Link href="/">
-          <a>← Back to home</a>
+          <a className={styles.bold}>← Back to home</a>
         </Link>
 
         <Button variant="contained" color="primary" onClick={handleOpen}>
@@ -89,10 +90,18 @@ export default function Alerts() {
         <Table aria-label="simple table">
           <TableHead>
             <TableRow>
-              <TableCell align="left">Symbol</TableCell>
-              <TableCell align="left">Avg</TableCell>
-              <TableCell align="left">Min avg</TableCell>
-              <TableCell align="left">Max avg</TableCell>
+              <TableCell style={boldLabel} align="left">
+                Symbol
+              </TableCell>
+              <TableCell style={boldLabel} align="left">
+                Avg
+              </TableCell>
+              <TableCell style={boldLabel} align="left">
+                Min avg
+              </TableCell>
+              <TableCell style={boldLabel} align="left">
+                Max avg
+              </TableCell>
             </TableRow>
           </TableHead>
           <TableBody>

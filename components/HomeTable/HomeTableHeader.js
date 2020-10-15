@@ -28,7 +28,7 @@ export default function HomeTableHeader(props) {
               active={orderBy === headCell.id}
               direction={orderBy === headCell.id ? order : 'asc'}
               onClick={createSortHandler(headCell.id)}
-              className={styles.tableSortLabelStyle}
+              className={styles.bold}
             >
               {headCell.label}
             </TableSortLabel>
