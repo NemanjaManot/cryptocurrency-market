@@ -1,3 +1,18 @@
+export const mockedAlerts = [
+  {
+    avg: 38371.96971694946388763834525,
+    symbol: 'bit2cILS',
+    minAvg: 3900,
+    maxAvg: 4000,
+  },
+  {
+    avg: 64171.02758444053807508139892,
+    symbol: 'mrcdBRL',
+    minAvg: 55000,
+    maxAvg: 62000,
+  },
+];
+
 export const data = [
   {
     currency: 'EUR',

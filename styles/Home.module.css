@@ -23,6 +23,19 @@
   font-weight: bold;
 }
 
+/* Alerts */
+.modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modalContent {
+  width: 50%;
+  background-color: white;
+  padding: 5%;
+}
+
 .footer {
   width: 100%;
   height: 100px;
