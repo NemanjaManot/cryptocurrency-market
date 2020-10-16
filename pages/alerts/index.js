@@ -13,9 +13,7 @@ import Alert from '@material-ui/lab/Alert';
 import FormModal from '../../components/FormModal';
 import PageHeader from '../../components/PageHeader';
 // Helpers
-import { getItemFromLocalStorage } from '../../utils/helpers';
-// Mocks
-import { mockedAlerts } from '../../dataMock';
+import { getItemFromLocalStorage, setItemToLocalStorage } from '../../utils/helpers';
 // Styles
 import styles from '../../styles/Home.module.css';
 
@@ -28,11 +26,16 @@ export default function Alerts() {
   const [symbol, setSymbol] = useState(filteredData[0].symbol);
   const [currMinAvg, setCurrMinAvg] = useState(0);
   const [currMaxAvg, setCurrMaxAvg] = useState(0);
-  const [savedAlerts, setSavedAlerts] = useState(mockedAlerts);
+  const [savedAlerts, setSavedAlerts] = useState([]);
   const [alerts, setAlerts] = useState([]);
 
   const foundSymbol = listOfCurrencies.filter((item) => item.symbol === symbol);
   const currAvg = foundSymbol[0].avg;
+
+  useEffect(() => {
+    const listOfSavedAlerts = getItemFromLocalStorage('savedAlerts');
+    setSavedAlerts(listOfSavedAlerts || []);
+  }, []);
 
   useEffect(() => {
     const addedAlerts = savedAlerts.filter((al) => al.showAlert);
@@ -49,7 +52,7 @@ export default function Alerts() {
 
   const handleSave = () => {
     const symbolObj = listOfCurrencies.filter((item) => item.symbol === symbol)[0];
-    setSavedAlerts([
+    const itemToSave = [
       ...savedAlerts,
       {
         avg: symbolObj.avg,
@@ -58,7 +61,9 @@ export default function Alerts() {
         maxAvg: currMaxAvg,
         showAlert: symbolObj.avg > currMinAvg && symbolObj.avg < currMaxAvg,
       },
-    ]);
+    ];
+    setItemToLocalStorage('savedAlerts', itemToSave);
+    setSavedAlerts(itemToSave);
     handleClose();
   };
 
