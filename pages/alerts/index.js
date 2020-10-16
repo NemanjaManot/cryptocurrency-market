@@ -12,12 +12,15 @@ import Paper from '@material-ui/core/Paper';
 import Alert from '@material-ui/lab/Alert';
 import FormModal from '../../components/FormModal';
 import PageHeader from '../../components/PageHeader';
+// Helpers
+import { getItemFromLocalStorage } from '../../utils/helpers';
 // Mocks
-import { mockedAlerts, data } from '../../dataMock';
+import { mockedAlerts } from '../../dataMock';
 // Styles
 import styles from '../../styles/Home.module.css';
 
-const filteredData = data.filter((item) => item.avg);
+const listOfCurrencies = getItemFromLocalStorage('currenciesList');
+const filteredData = listOfCurrencies.filter((item) => item.avg);
 const boldLabel = { fontWeight: 'bold' };
 
 export default function Alerts() {
@@ -28,7 +31,7 @@ export default function Alerts() {
   const [savedAlerts, setSavedAlerts] = useState(mockedAlerts);
   const [alerts, setAlerts] = useState([]);
 
-  const foundSymbol = data.filter((item) => item.symbol === symbol);
+  const foundSymbol = listOfCurrencies.filter((item) => item.symbol === symbol);
   const currAvg = foundSymbol[0].avg;
 
   useEffect(() => {
@@ -45,7 +48,7 @@ export default function Alerts() {
   };
 
   const handleSave = () => {
-    const symbolObj = data.filter((item) => item.symbol === symbol)[0];
+    const symbolObj = listOfCurrencies.filter((item) => item.symbol === symbol)[0];
     setSavedAlerts([
       ...savedAlerts,
       {
