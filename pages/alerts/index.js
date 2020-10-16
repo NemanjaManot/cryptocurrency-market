@@ -14,11 +14,12 @@ import uniqid from 'uniqid';
 import FormModal from '../../components/FormModal';
 import PageHeader from '../../components/PageHeader';
 // Helpers
-import { getItemFromLocalStorage, setItemToLocalStorage } from '../../utils/helpers';
+import { getItemFromLocalStorage, setItemToLocalStorage, removeItemFromLocalStorage } from '../../utils/helpers';
 // Styles
 import styles from '../../styles/Home.module.css';
 
 const boldLabel = { fontWeight: 'bold' };
+const buttonStyle = { marginRight: '20px' };
 
 export default function Alerts() {
   const [open, setOpen] = useState(false);
@@ -60,6 +61,11 @@ export default function Alerts() {
 
   const handleClose = () => {
     setOpen(false);
+  };
+
+  const handleRemoveAll = async () => {
+    await removeItemFromLocalStorage('savedAlerts');
+    setSavedAlerts([]);
   };
 
   const handleSave = () => {
@@ -107,9 +113,15 @@ export default function Alerts() {
           <a className={styles.bold}>← Back to home</a>
         </Link>
 
-        <Button variant="contained" color="primary" onClick={handleOpen}>
-          Add alert
-        </Button>
+        <div>
+          <Button style={buttonStyle} variant="contained" color="secondary" onClick={handleRemoveAll}>
+            Remove all
+          </Button>
+
+          <Button variant="contained" color="primary" onClick={handleOpen}>
+            Add alert
+          </Button>
+        </div>
       </PageHeader>
 
       <FormModal
