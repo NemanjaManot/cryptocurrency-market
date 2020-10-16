@@ -87,7 +87,7 @@ export default function Alerts() {
 
       {alerts.map((al) => (
         <Alert key={uniqid()} onClose={() => handleCloseAlertNotification(al)}>
-          {al.symbol}!
+          {al.symbol} reaches the limit
         </Alert>
       ))}
 
