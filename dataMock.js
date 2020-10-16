@@ -4,12 +4,14 @@ export const mockedAlerts = [
     symbol: 'bit2cILS',
     minAvg: 3900,
     maxAvg: 4000,
+    showAlert: true,
   },
   {
     avg: 64171.02758444053807508139892,
     symbol: 'mrcdBRL',
     minAvg: 55000,
     maxAvg: 62000,
+    showAlert: true,
   },
 ];
 

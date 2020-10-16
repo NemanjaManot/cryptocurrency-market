@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
 import Button from '@material-ui/core/Button';
@@ -9,6 +9,7 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
+import Alert from '@material-ui/lab/Alert';
 import FormModal from '../../components/FormModal';
 import PageHeader from '../../components/PageHeader';
 // Mocks
@@ -25,9 +26,15 @@ export default function Alerts() {
   const [currMinAvg, setCurrMinAvg] = useState(0);
   const [currMaxAvg, setCurrMaxAvg] = useState(0);
   const [savedAlerts, setSavedAlerts] = useState(mockedAlerts);
+  const [alerts, setAlerts] = useState([]);
 
   const foundSymbol = data.filter((item) => item.symbol === symbol);
   const currAvg = foundSymbol[0].avg;
+
+  useEffect(() => {
+    const addedAlerts = savedAlerts.filter((al) => al.showAlert);
+    setAlerts(addedAlerts);
+  }, [savedAlerts]);
 
   const handleOpen = () => {
     setOpen(true);
@@ -46,6 +53,7 @@ export default function Alerts() {
         symbol: symbolObj.symbol,
         minAvg: currMinAvg,
         maxAvg: currMaxAvg,
+        showAlert: true,
       },
     ]);
     handleClose();
@@ -57,11 +65,22 @@ export default function Alerts() {
 
   const handleCurrMaxAvg = (e) => setCurrMaxAvg(e.target.value);
 
+  const handleCloseAlertNotification = (al) => {
+    const leftAlerts = alerts.filter((curr) => curr.symbol !== al.symbol);
+    setAlerts(leftAlerts);
+  };
+
   return (
     <div className={styles.alerts}>
       <Head>
         <title>Crypto Currency Market / Alerts</title>
       </Head>
+
+      {alerts.map((al) => (
+        <Alert key={Math.random()} onClose={() => handleCloseAlertNotification(al)}>
+          {al.symbol}!
+        </Alert>
+      ))}
 
       <PageHeader>
         <Link href="/">

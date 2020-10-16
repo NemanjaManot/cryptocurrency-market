@@ -43,6 +43,7 @@ export default function FormModal({
               <TextField type="number" label="Max average" value={currMaxAvg} onChange={setCurrMaxAvg} />
             </div>
           </div>
+          <p>You will get notification when average is between your input values</p>
           <Button variant="contained" color="primary" onClick={onSave}>
             Save
           </Button>
