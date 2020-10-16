@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Head from 'next/head';
 import HomePage from '../components/HomePage';
 // Helpers
-import { setItemToLocalStorage, getItemFromLocalStorage } from '../utils/helper';
+import { setItemToLocalStorage, getItemFromLocalStorage } from '../utils/helpers';
 // temporary mocked data
 import { data } from '../dataMock';
 // Styles
@@ -16,8 +16,8 @@ export default function Home() {
   }, []);
 
   useEffect(() => {
-    let tt = getItemFromLocalStorage('currenciesList');
-    setList(tt);
+    let listOfCurrencies = getItemFromLocalStorage('currenciesList');
+    setList(listOfCurrencies);
   }, []);
 
   return (
