@@ -11,10 +11,6 @@ import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import HomeTableHeader from './HomeTableHeader';
 import PageHeader from '../PageHeader';
-// temporary mocked data
-import { data } from '../../dataMock';
-// Styles
-import styles from '../../styles/Home.module.css';
 
 function descendingComparator(a, b, orderBy) {
   if (b[orderBy] < a[orderBy]) {
@@ -44,16 +40,16 @@ function stableSort(array, comparator) {
 
 let debounce;
 
-export default function HomePage() {
+export default function HomePage({ podaci }) {
   const [order, setOrder] = useState('desc');
   const [orderBy, setOrderBy] = useState('volume');
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(5);
-  const [searchedResult, setSearchedResult] = useState(data);
+  const [searchedResult, setSearchedResult] = useState(podaci);
 
   useEffect(() => {
-    setSearchedResult(data);
-  }, [data]);
+    setSearchedResult(podaci);
+  }, [podaci]);
 
   useEffect(() => {
     return () => {
@@ -84,7 +80,7 @@ export default function HomePage() {
       clearTimeout(debounce);
     }
     debounce = setTimeout(() => {
-      setSearchedResult(data.filter((currency) => currency.symbol.toLowerCase().includes(query.toLowerCase())));
+      setSearchedResult(podaci.filter((currency) => currency.symbol.toLowerCase().includes(query.toLowerCase())));
     }, 500);
   };
 
