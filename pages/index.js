@@ -14,12 +14,6 @@ const timeToReFetchInMs = 300000;
 export default function Home() {
   const [list, setList] = useState([]);
 
-  const setCurrentTimeInMsToStorage = () => {
-    const date = new Date();
-    const msTime = date.getTime();
-    setItemToLocalStorage('currentTimeMs', msTime);
-  };
-
   const setLastGetTimeInMsToStorage = () => {
     const date = new Date();
     const msTime = date.getTime();
@@ -28,8 +22,8 @@ export default function Home() {
 
   useEffect(() => {
     const lastGetTime = getItemFromLocalStorage('lastGetTimeMs');
-    const currentTime = getItemFromLocalStorage('currentTimeMs');
-    setCurrentTimeInMsToStorage();
+    const date = new Date();
+    const currentTime = date.getTime();
     if (!lastGetTime) {
       // this should be triggered only for first time (because lastGetTime still doesn't exist in local storage)
       setLastGetTimeInMsToStorage();
