@@ -10,6 +10,7 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import Alert from '@material-ui/lab/Alert';
+import uniqid from 'uniqid';
 import FormModal from '../../components/FormModal';
 import PageHeader from '../../components/PageHeader';
 // Helpers
@@ -85,7 +86,7 @@ export default function Alerts() {
       </Head>
 
       {alerts.map((al) => (
-        <Alert key={Math.random()} onClose={() => handleCloseAlertNotification(al)}>
+        <Alert key={uniqid()} onClose={() => handleCloseAlertNotification(al)}>
           {al.symbol}!
         </Alert>
       ))}
@@ -134,7 +135,7 @@ export default function Alerts() {
           </TableHead>
           <TableBody>
             {savedAlerts.map((row) => (
-              <TableRow key={Math.random()}>
+              <TableRow key={uniqid()}>
                 <TableCell align="left">{row.symbol}</TableCell>
                 <TableCell align="left">{row.avg}</TableCell>
                 <TableCell align="left">{row.minAvg}</TableCell>
