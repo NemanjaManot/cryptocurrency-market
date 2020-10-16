@@ -56,7 +56,7 @@ export default function Alerts() {
         symbol: symbolObj.symbol,
         minAvg: currMinAvg,
         maxAvg: currMaxAvg,
-        showAlert: true,
+        showAlert: symbolObj.avg > currMinAvg && symbolObj.avg < currMaxAvg,
       },
     ]);
     handleClose();
