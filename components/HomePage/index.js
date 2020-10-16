@@ -40,16 +40,16 @@ function stableSort(array, comparator) {
 
 let debounce;
 
-export default function HomePage({ podaci }) {
+export default function HomePage({ list }) {
   const [order, setOrder] = useState('desc');
   const [orderBy, setOrderBy] = useState('volume');
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(5);
-  const [searchedResult, setSearchedResult] = useState(podaci);
+  const [searchedResult, setSearchedResult] = useState(list);
 
   useEffect(() => {
-    setSearchedResult(podaci);
-  }, [podaci]);
+    setSearchedResult(list);
+  }, [list]);
 
   useEffect(() => {
     return () => {
@@ -80,7 +80,7 @@ export default function HomePage({ podaci }) {
       clearTimeout(debounce);
     }
     debounce = setTimeout(() => {
-      setSearchedResult(podaci.filter((currency) => currency.symbol.toLowerCase().includes(query.toLowerCase())));
+      setSearchedResult(list.filter((currency) => currency.symbol.toLowerCase().includes(query.toLowerCase())));
     }, 500);
   };
 

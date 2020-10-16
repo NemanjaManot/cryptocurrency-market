@@ -9,7 +9,7 @@ import { data } from '../dataMock';
 import styles from '../styles/Home.module.css';
 
 export default function Home() {
-  const [podaci, setPodaci] = useState([]);
+  const [list, setList] = useState([]);
 
   useEffect(() => {
     setItemToLocalStorage('currenciesList', data);
@@ -17,7 +17,7 @@ export default function Home() {
 
   useEffect(() => {
     let tt = getItemFromLocalStorage('currenciesList');
-    setPodaci(tt);
+    setList(tt);
   }, []);
 
   return (
@@ -27,7 +27,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <HomePage podaci={podaci} />
+      <HomePage list={list} />
     </div>
   );
 }
