@@ -75,6 +75,9 @@ export default function HomePage({ list }) {
   };
 
   const handleSearch = (e) => {
+    if (page !== 0) {
+      setPage(0);
+    }
     const query = e.target.value;
     if (debounce) {
       clearTimeout(debounce);
