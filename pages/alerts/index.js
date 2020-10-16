@@ -18,20 +18,31 @@ import { getItemFromLocalStorage, setItemToLocalStorage } from '../../utils/help
 // Styles
 import styles from '../../styles/Home.module.css';
 
-const listOfCurrencies = getItemFromLocalStorage('currenciesList');
-const filteredData = listOfCurrencies.filter((item) => item.avg);
 const boldLabel = { fontWeight: 'bold' };
 
 export default function Alerts() {
   const [open, setOpen] = useState(false);
-  const [symbol, setSymbol] = useState(filteredData[0].symbol);
+  const [symbol, setSymbol] = useState(null);
   const [currMinAvg, setCurrMinAvg] = useState(0);
   const [currMaxAvg, setCurrMaxAvg] = useState(0);
   const [savedAlerts, setSavedAlerts] = useState([]);
   const [alerts, setAlerts] = useState([]);
+  const [localListOfCurrencies, setLocalListOfCurrencies] = useState([]);
+  const [localFilteredData, setLocalFilteredData] = useState([]);
+  const [currAvg, setCurrAvg] = useState(0);
 
-  const foundSymbol = listOfCurrencies.filter((item) => item.symbol === symbol);
-  const currAvg = foundSymbol[0].avg;
+  useEffect(() => {
+    const listOfCurrencies = getItemFromLocalStorage('currenciesList');
+    setLocalListOfCurrencies(listOfCurrencies);
+    setLocalFilteredData(listOfCurrencies.filter((item) => item.avg));
+    setSymbol(listOfCurrencies.filter((item) => item.avg)[0].symbol);
+  }, []);
+
+  useEffect(() => {
+    const foundSymbol = localListOfCurrencies.filter((item) => item.symbol === symbol);
+    const selectedAvg = foundSymbol && foundSymbol[0] && foundSymbol[0].avg;
+    setCurrAvg(selectedAvg || 0);
+  }, [symbol]);
 
   useEffect(() => {
     const listOfSavedAlerts = getItemFromLocalStorage('savedAlerts');
@@ -52,7 +63,7 @@ export default function Alerts() {
   };
 
   const handleSave = () => {
-    const symbolObj = listOfCurrencies.filter((item) => item.symbol === symbol)[0];
+    const symbolObj = localListOfCurrencies.filter((item) => item.symbol === symbol)[0];
     const itemToSave = [
       ...savedAlerts,
       {
@@ -106,7 +117,7 @@ export default function Alerts() {
         onClose={handleClose}
         symbol={symbol}
         selectSymbol={handleSelectSymbol}
-        filteredData={filteredData}
+        filteredData={localFilteredData}
         currAvg={currAvg}
         currMinAvg={currMinAvg}
         currMaxAvg={currMaxAvg}
